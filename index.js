@@ -7,7 +7,7 @@ const state = {
   net: null,
 };
 
-import {setupFPS, getVideoInputs, loadVideo} from './helpers';
+import {setupFPS, setupInfo, getVideoInputs, loadVideo} from './helpers';
 import {loadModel, executeInRealTime} from './model/coco-ssd';
 
 /**
@@ -25,6 +25,7 @@ export async function bindPage() {
   document.getElementById('main').style.display = 'inline-block';
 
   setupFPS(stats);
+  setupInfo();
 
   await executeInRealTime(state, stats);
 }

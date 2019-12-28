@@ -47,6 +47,17 @@
     .spinner-text {
       float: left;
     }
+    #info{
+      position: fixed;
+      left: 100px;
+      color: white;
+      top: 10px;
+      background-color: cornflowerblue;
+      padding: 2px 10px;
+    }
+    #stats{
+      position: relative;
+    }
     /* mobile */
     @media only screen and (max-width: 850px) {
       #main {
@@ -63,7 +74,7 @@
 
 <body>
   <div id="stats"></div>
-  <div id="info"></div>
+  <div id="info" style="display: none"></div>
   <div id="loading" style='display:flex'>
     <div class="spinner-text">
       Loading model...

@@ -23,7 +23,7 @@ export async function executeInRealTime(state, stats) {
     const result = await state.net.detect(state.video);
     context.drawImage(state.video, 0, 0);
 
-    info.innerText = `Number of detections ${result.length}`;
+    info.innerText = `Number of detections: ${result.length}`;
 
     for (let i = 0; i < result.length; i++) {
     context.beginPath();
