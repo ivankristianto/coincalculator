@@ -12,19 +12,19 @@ export function setupInfo() {
   info.style.display = 'block';
 }
 
-export function isAndroid() {
+function isAndroid() {
   return /Android/i.test(navigator.userAgent);
 }
 
-export function isiOS() {
+function isiOS() {
   return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
 
-export function isMobile() {
+function isMobile() {
   return isAndroid() || isiOS();
 }
 
-export async function getVideoInputs() {
+async function getVideoInputs() {
   if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
     console.log('enumerateDevices() not supported.');
     return [];
@@ -33,6 +33,10 @@ export async function getVideoInputs() {
   const devices = await navigator.mediaDevices.enumerateDevices();
 
   return devices.filter((device) => device.kind === 'videoinput');
+}
+
+export function getBackCamera(cameras) {
+  return cameras.filter((camera) => camera.label.toLowerCase().includes('back'));
 }
 
 export async function getDeviceIdForLabel(cameraLabel) {
@@ -73,7 +77,7 @@ async function getConstraints(cameraLabel) {
  * Loads a the camera to be used in the demo
  *
  */
-export async function setupCamera(cameraLabel, state) {
+async function setupCamera(cameraLabel, state) {
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
     throw new Error(
         'Browser API navigator.mediaDevices.getUserMedia not available');
@@ -98,9 +102,21 @@ export async function setupCamera(cameraLabel, state) {
   });
 }
 
-export async function loadVideo(cameraLabel, state) {
+export async function loadVideo(state) {
   try {
-    state.video = await setupCamera(cameraLabel, state);
+    let defaultCamera = null;
+    let cameras = await getVideoInputs();
+    console.log(cameras);
+
+    const backCameras = getBackCamera(cameras);
+    if (backCameras.length>0) {
+      defaultCamera = backCameras[0];
+    } else {
+      // fallback
+      defaultCamera=cameras[0];
+    }
+
+    state.video = await setupCamera(defaultCamera.label, state);
   } catch (e) {
     let info = document.getElementById('info');
     info.textContent = 'this browser does not support video capture,' +

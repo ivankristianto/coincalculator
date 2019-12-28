@@ -7,7 +7,7 @@ const state = {
   net: null,
 };
 
-import {setupFPS, setupInfo, getVideoInputs, loadVideo} from './helpers';
+import {setupFPS, setupInfo, loadVideo} from './helpers';
 import {loadModel, executeInRealTime} from './model/coco-ssd';
 
 /**
@@ -16,10 +16,8 @@ import {loadModel, executeInRealTime} from './model/coco-ssd';
 export async function bindPage() {
   await loadModel(state);
 
-  let cameras = await getVideoInputs();
-  console.log(cameras);
-
-  await loadVideo(cameras[0].label, state);
+  // Start video stream
+  await loadVideo(state);
 
   document.getElementById('loading').style.display = 'none';
   document.getElementById('main').style.display = 'inline-block';
