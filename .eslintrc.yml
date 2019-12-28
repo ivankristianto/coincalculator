@@ -1,0 +1,37 @@
+parser: babel-eslint
+
+extends:
+  - google
+
+# 2 / true => on
+# 0 / false => off
+# 1 - warning
+
+rules:
+  import/no-unresolved: 0 # account for aliases
+  import/prefer-default-export: 0
+  no-console: 0
+  no-underscore-dangle: 0
+  no-plusplus: [2, { allowForLoopAfterthoughts: true }]
+  linebreak-style: 0
+  no-unused-vars: 0 # TEMP (while commenting out during dev)
+  react/jsx-filename-extension: 0
+  react/no-array-index-key: 0
+  import/no-extraneous-dependencies: 0 # we're intentionally not listing coreweb dependencies used by siteapp
+  camelcase: 0
+  max-len: ["error", { "code": 250, "ignoreComments": true }]
+  import/no-cycle: 0
+  require-jsdoc: 0
+  valid-jsdoc: 0
+
+env:
+  browser: true
+  node: true
+  jest: true
+
+globals:
+  document: writable
+  window: writable
+  fetch: writable
+  mount: writable
+  shallow: writable
