@@ -97,6 +97,5 @@ export async function loadVideo(cameraLabel, state) {
 
   console.log('state.video', state.video);
 
-  // state.video.style.display='block'
   state.video.play();
 }
