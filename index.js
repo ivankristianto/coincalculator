@@ -8,6 +8,7 @@ const state = {
 };
 
 import {getVideoInputs,loadVideo} from './helpers';
+import {loadModel, executeInRealTime} from './model/coco-ssd';
 
 /**
  * Sets up a frames per second panel on the top-left of the window
@@ -22,6 +23,8 @@ function setupFPS() {
  * Kicks off the demo.
  */
 export async function bindPage() {
+  await loadModel(state);
+
   let cameras = await getVideoInputs();
   console.log(cameras);
 
@@ -31,6 +34,8 @@ export async function bindPage() {
   document.getElementById('main').style.display = 'inline-block';
 
   setupFPS();
+
+  executeInRealTime(state, stats);
 }
 
 console.log('START');
