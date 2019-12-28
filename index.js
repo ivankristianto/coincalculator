@@ -7,14 +7,14 @@ const state = {
   net: null,
 };
 
-import {getVideoInputs,loadVideo} from './helpers';
+import {getVideoInputs, loadVideo} from './helpers';
 import {loadModel, executeInRealTime} from './model/coco-ssd';
 
 /**
  * Sets up a frames per second panel on the top-left of the window
  */
 function setupFPS() {
-  stats.showPanel(0);  // 0: fps, 1: ms, 2: mb, 3+: custom
+  stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
   document.body.appendChild(stats.dom);
 }
 

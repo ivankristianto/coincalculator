@@ -18,7 +18,7 @@ export async function getVideoInputs() {
 
   const devices = await navigator.mediaDevices.enumerateDevices();
 
-  const videoDevices = devices.filter(device => device.kind === 'videoinput');
+  const videoDevices = devices.filter((device) => device.kind === 'videoinput');
 
   return videoDevices;
 }
@@ -38,9 +38,9 @@ export async function getDeviceIdForLabel(cameraLabel) {
 
 function stopExistingVideoCapture(state) {
   if (state.video && state.video.srcObject) {
-    state.video.srcObject.getTracks().forEach(track => {
+    state.video.srcObject.getTracks().forEach((track) => {
       track.stop();
-    })
+    });
     state.video.srcObject = null;
   }
 }
