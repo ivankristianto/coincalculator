@@ -8,7 +8,8 @@ const state = {
 };
 
 import {setupFPS, setupInfo, loadVideo} from './helpers';
-import {loadModel, executeInRealTime} from './model/coco-ssd';
+// import {loadModel, executeInRealTime} from './model/coco-ssd';
+import {loadModel, executeInRealTime} from './model/coin';
 
 /**
  * Kicks off the demo.

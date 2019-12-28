@@ -760,6 +760,11 @@
   resolved "https://registry.yarnpkg.com/@tensorflow-models/coco-ssd/-/coco-ssd-2.0.1.tgz#99b90d18821ae42caa9c3e6c2dad912f91282287"
   integrity sha512-+mh5eYXSK7WnQmxVbgFoClwMoQ0Vu8Ac2gyXREaNqpsLTqc2z+ZhcltEXdtHhbL8ZC6eCM7Uq3I9MXzomNsB7w==
 
+"@tensorflow/tfjs-automl@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@tensorflow/tfjs-automl/-/tfjs-automl-1.0.0.tgz#554e37c4ee25e2db6a24ba3c4acd9083e229e8da"
+  integrity sha512-h+IUbZktD5FYR8RYKnFyPcsEujekLxyGpjm4Lgt5q57j5how7dAHO6+HTSoa7OgH0lOiYyOBCFtB5YZHlZhSUg==
+
 "@tensorflow/tfjs-converter@^1.5.1":
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/@tensorflow/tfjs-converter/-/tfjs-converter-1.5.1.tgz#13b76266d51c7e7f3aeee27cdc65444a48e01538"
@@ -4093,6 +4098,13 @@ mkdirp@^0.5.1, mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
+model@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/model/-/model-6.0.1.tgz#db70e97ba5d452d06b79e8789358c0ba45292f2e"
+  integrity sha1-23Dpe6XUUtBreeh4k1jAukUpLy4=
+  dependencies:
+    utilities "1.0.x"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -6302,6 +6314,11 @@ util@^0.11.0:
   integrity sha512-HShAsny+zS2TZfaXxD9tYj4HQGlBezXZMZuM/S5PKLLoZkShZiGk9o5CzukI1LVHZvjdvZ2Sj1aW/Ndn2NB/HQ==
   dependencies:
     inherits "2.0.3"
+
+utilities@1.0.x:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/utilities/-/utilities-1.0.5.tgz#f2b77a88f3510733fc7215b5c486a504a75ab245"
+  integrity sha1-8rd6iPNRBzP8chW1xIalBKdaskU=
 
 uuid@^3.3.2:
   version "3.3.3"
