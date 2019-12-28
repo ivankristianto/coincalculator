@@ -18,9 +18,7 @@ export async function getVideoInputs() {
 
   const devices = await navigator.mediaDevices.enumerateDevices();
 
-  const videoDevices = devices.filter((device) => device.kind === 'videoinput');
-
-  return videoDevices;
+  return devices.filter((device) => device.kind === 'videoinput');
 }
 
 export async function getDeviceIdForLabel(cameraLabel) {
@@ -53,7 +51,7 @@ async function getConstraints(cameraLabel) {
     deviceId = await getDeviceIdForLabel(cameraLabel);
     // on mobile, use the back mode based on the camera.
     facingMode = isMobile() ? 'environment' : null;
-  };
+  }
   return {deviceId, facingMode};
 }
 
@@ -74,9 +72,8 @@ export async function setupCamera(cameraLabel, state) {
   const videoConstraints = await getConstraints(cameraLabel, state);
   console.log('videoConstraints', videoConstraints);
 
-  const stream = await navigator.mediaDevices.getUserMedia(
+  videoElement.srcObject = await navigator.mediaDevices.getUserMedia(
       {'audio': false, 'video': videoConstraints});
-  videoElement.srcObject = stream;
 
   return new Promise((resolve) => {
     videoElement.onloadedmetadata = () => {
