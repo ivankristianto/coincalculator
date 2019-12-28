@@ -1,3 +1,11 @@
+/**
+ * Sets up a frames per second panel on the top-left of the window
+ */
+export function setupFPS(stats) {
+  stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+  document.body.appendChild(stats.dom);
+}
+
 export function isAndroid() {
   return /Android/i.test(navigator.userAgent);
 }

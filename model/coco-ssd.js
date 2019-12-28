@@ -6,8 +6,9 @@ export async function loadModel(state, baseModel = 'lite_mobilenet_v2') {
   });
 }
 
-export function executeInRealTime(state, stats) {
+export async function executeInRealTime(state, stats) {
   const canvas = document.getElementById('output');
+  const info = document.getElementById('info');
 
   canvas.width = state.video.width;
   canvas.height = state.video.height;
@@ -22,8 +23,8 @@ export function executeInRealTime(state, stats) {
     const result = await state.net.detect(state.video);
     context.drawImage(state.video, 0, 0);
 
-    console.log('number of detections: ', result.length);
-    console.log('Results ', result);
+    info.innerText = `Number of detections ${result.length}`;
+
     for (let i = 0; i < result.length; i++) {
     context.beginPath();
     context.rect(...result[i].bbox);
@@ -43,5 +44,5 @@ export function executeInRealTime(state, stats) {
     requestAnimationFrame(predictSegmentationFrame);
   }
 
-  predictSegmentationFrame();
+  await predictSegmentationFrame();
 }
