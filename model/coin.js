@@ -1,7 +1,7 @@
 import * as autoMl from '@tensorflow/tfjs-automl';
 
 export async function loadModel(state) {
-    const modelUrl = 'http://localhost:1234/coin/model.json'; // URL to the model.json file.
+    const modelUrl = 'https://coin.ivankristianto.com/coin/model.json'; // URL to the model.json file.
     state.net = await autoMl.loadObjectDetection(modelUrl);
 }
 
