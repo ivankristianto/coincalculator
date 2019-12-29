@@ -1,5 +1,0 @@
-wbackground
-IDR_100
-IDR_1000
-IDR_500
-IDR_200
