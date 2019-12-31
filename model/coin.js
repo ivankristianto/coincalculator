@@ -25,6 +25,10 @@ export async function executeInRealTime(state, stats) {
         info.innerText = `Number of detections: ${result.length}`;
 
         for (let i = 0; i < result.length; i++) {
+            const score = result[i].score;
+            if (score < 0.8) {
+                continue;
+            }
             context.beginPath();
             context.rect(result[i].box.left, result[i].box.top, result[i].box.width, result[i].box.height);
             context.lineWidth = 2;
@@ -32,7 +36,7 @@ export async function executeInRealTime(state, stats) {
             context.fillStyle = 'black';
             context.stroke();
             context.fillText(
-                result[i].score.toFixed(3) + ' ' + result[i].label, result[i].box.left,
+                score.toFixed(3) + ' ' + result[i].label, result[i].box.left,
                 result[i].box.top - 10
             );
         }
