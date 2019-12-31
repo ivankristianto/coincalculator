@@ -35,9 +35,17 @@ export async function executeInRealTime(state, stats) {
             context.strokeStyle = 'black';
             context.fillStyle = 'black';
             context.stroke();
+
+            context.beginPath();
+            context.rect(result[i].box.left, result[i].box.top - 13, result[i].box.width, 14);
+            context.fillStyle = 'black';
+            context.fill();
+            context.stroke();
+
+            context.fillStyle = 'white';
             context.fillText(
                 score.toFixed(3) + ' ' + result[i].label, result[i].box.left,
-                result[i].box.top - 10
+                result[i].box.top - 2
             );
         }
 
