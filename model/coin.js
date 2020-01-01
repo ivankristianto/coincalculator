@@ -1,7 +1,7 @@
 import * as autoMl from '@tensorflow/tfjs-automl';
 
 export async function loadModel(state) {
-    const modelUrl = 'https://storage.googleapis.com/coin-saved-model/v3/model.json'; // URL to the model.json file.
+    const modelUrl = 'https://storage.googleapis.com/coin-saved-model/v4/model.json'; // URL to the model.json file.
     state.net = await autoMl.loadObjectDetection(modelUrl);
 }
 
