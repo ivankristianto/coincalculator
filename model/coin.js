@@ -26,7 +26,7 @@ export async function executeInRealTime(state, stats) {
 
         for (let i = 0; i < result.length; i++) {
             const score = result[i].score;
-            if (score < 0.8) {
+            if (score < 0.5) {
                 continue;
             }
             context.beginPath();
