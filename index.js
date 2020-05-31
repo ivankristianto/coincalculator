@@ -1,4 +1,6 @@
 import Stats from 'stats.js';
+import * as tf from '@tensorflow/tfjs';
+import * as tfjsWasm from '@tensorflow/tfjs-backend-wasm';
 
 const stats = new Stats();
 const state = {
@@ -15,6 +17,7 @@ import {loadModel, executeInRealTime} from './model/coin';
  * Kicks off the demo.
  */
 export async function bindPage() {
+  await tf.setBackend('wasm');
   await loadModel(state);
 
   // Start video stream
